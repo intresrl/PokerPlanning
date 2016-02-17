@@ -10,20 +10,20 @@ angular.module('app.routes', [])
     
       
         
-    .state('page1', {
-      url: '/page1',
-      templateUrl: 'templates/page1.html',
-      controller: 'page1Ctrl'
+    .state('startPage', {
+      url: '/start_page',
+      templateUrl: 'templates/start_page.html',
+      controller: 'StartPageCtrl'
     })
         
       
     
       
         
-    .state('page2', {
-      url: '/page2',
-      templateUrl: 'templates/page2.html',
-      controller: 'page2Ctrl'
+    .state('voteSelection', {
+      url: '/vote_selection',
+      templateUrl: 'templates/vote_selection.html',
+      controller: 'VoteSelectionCtrl'
     })
         
       
@@ -31,9 +31,9 @@ angular.module('app.routes', [])
       
         
     .state('myVote', {
-      url: '/page3',
-      templateUrl: 'templates/myVote.html',
-      controller: 'myVoteCtrl'
+      url: '/my_vote',
+      templateUrl: 'templates/my_vote.html',
+      controller: 'MyVoteCtrl'
     })
         
       
@@ -41,15 +41,15 @@ angular.module('app.routes', [])
       
         
     .state('results', {
-      url: '/page4',
+      url: '/results',
       templateUrl: 'templates/results.html',
-      controller: 'resultsCtrl'
+      controller: 'ResultsCtrl'
     })
         
       
     ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/page1');
+  $urlRouterProvider.otherwise('/start_page');
 
 });

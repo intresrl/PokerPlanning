@@ -1,18 +1,18 @@
 angular.module('app.controllers', [])
   
-.controller('page1Ctrl', function($scope) {
+.controller('StartPageCtrl', function($scope) {
 
 })
    
-.controller('page2Ctrl', function($scope) {
+.controller('VoteSelectionCtrl', function($scope) {
 
 })
    
-.controller('myVoteCtrl', function($scope) {
+.controller('MyVoteCtrl', function($scope) {
 
 })
    
-.controller('resultsCtrl', function($scope) {
+.controller('ResultsCtrl', function($scope) {
 
 })
  
