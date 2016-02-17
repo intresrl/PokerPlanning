@@ -4,7 +4,16 @@ angular.module('app.services', [])
 
 }])
 
-.service('BlankService', [function(){
-
+.service('VoteSelectionService', [function(){
+	return {
+		myVote: '77',
+		getMyVote : function(){
+			return this.myVote;
+		},
+		doVote : function(newVote){
+			//var newVote = "11";
+			this.myVote = newVote;
+		}
+	}
 }]);
 

@@ -33,7 +33,12 @@ angular.module('app.routes', [])
     .state('myVote', {
       url: '/my_vote',
       templateUrl: 'templates/my_vote.html',
-      controller: 'MyVoteCtrl'
+      controller: 'MyVoteCtrl',
+      resolve: {
+        myVote : function(VoteSelectionService){
+          return VoteSelectionService.getMyVote();
+        }
+      }
     })
         
       
