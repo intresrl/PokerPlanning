@@ -4,16 +4,27 @@ angular.module('app.services', [])
 
 }])
 
+.service('GameTitleService', [function(){
+	return {
+		gameTitle: 'game title',
+		getGameTitle : function(){
+			return this.gameTitle;
+		},
+		setGameTitle : function(newTitle){
+			this.gameTitle = newTitle;
+		}
+	}
+}])
+
 .service('VoteSelectionService', [function(){
 	return {
-		myVote: '77',
+		myVote: '0',
 		getMyVote : function(){
 			return this.myVote;
 		},
 		doVote : function(newVote){
-			//var newVote = "11";
 			this.myVote = newVote;
 		}
 	}
-}]);
+}])
 

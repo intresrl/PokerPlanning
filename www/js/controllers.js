@@ -1,15 +1,20 @@
 angular.module('app.controllers', [])
 
-.controller('StartPageCtrl', function($scope) {
-
+.controller('StartPageCtrl', function($scope, GameTitleService) {
+	var spc = this;
+	spc.setGameTitle = function(event){
+		GameTitleService.setGameTitle("event.target.firstChild.nodeValue");
+	}
 })
 
-.controller('VoteSelectionCtrl', function($scope, VoteSelectionService) {
+.controller('VoteSelectionCtrl', function($scope, VoteSelectionService, $ionicNavBarDelegate) {
 	var vcs = this;
-	vcs.doVote = function(event){
-		VoteSelectionService.doVote(event.target.id);
-	}
+	$ionicNavBarDelegate.title("banana");//TODO we are working on this
+	//$scope.header.title("apple");
 
+	vcs.doVote = function(event){
+		VoteSelectionService.doVote(event.target.firstChild.nodeValue);
+	}
 })
 
 .controller('MyVoteCtrl', function($scope, myVote) {

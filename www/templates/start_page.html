@@ -1,15 +1,15 @@
 <ion-view title="">
-    <ion-content  padding="true" class="has-header">
+    <ion-content  padding="true" ng-controller="StartPageCtrl as spc" class="has-header">
         <div style="text-align:center;">
             <img src="img/65bd6a11ReNbO7hJUuIC_intreLogo.png" width="100%" height="auto">
         </div>
         <form class="list"></form>
         <form class="list">
             <label class="item item-input">
-                <span class="input-label">Game Title</span>
+                <span class="input-label">Game Title: </span>
                 <input type="text" placeholder="">
             </label>
         </form>
-        <a ui-sref="voteSelection" class="button button-stable button-block ">Start</a>
+        <a ui-sref="voteSelection" ng-click="spc.setGameTitle($event)" class="button button-stable button-block">Start</a>
     </ion-content>
 </ion-view>
