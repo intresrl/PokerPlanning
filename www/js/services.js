@@ -6,7 +6,7 @@ angular.module('app.services', [])
 
 .service('GameTitleService', [function(){
 	return {
-		gameTitle: 'game title',
+		gameTitle: '',
 		getGameTitle : function(){
 			return this.gameTitle;
 		},

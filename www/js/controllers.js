@@ -3,22 +3,26 @@ angular.module('app.controllers', [])
 .controller('StartPageCtrl', function($scope, GameTitleService) {
 	var spc = this;
 	spc.setGameTitle = function(event){
-		GameTitleService.setGameTitle("event.target.firstChild.nodeValue");
+		var gameLabel = document.getElementById("gameTitleLabel");
+		GameTitleService.setGameTitle(gameLabel.value);
 	}
 })
 
-.controller('VoteSelectionCtrl', function($scope, VoteSelectionService, $ionicNavBarDelegate) {
-	var vcs = this;
-	$ionicNavBarDelegate.title("banana");//TODO we are working on this
-	//$scope.header.title("apple");
+.controller('VoteSelectionCtrl', function($scope, VoteSelectionService, GameTitleService) {
+	var vsc = this;
 
-	vcs.doVote = function(event){
+	//$scope.pageTitle = "TEEEEEEEEEEST"; //THIS WAY IT WORKS
+	$scope.pageTitle = GameTitleService.getGameTitle();
+	
+	vsc.doVote = function(event){
 		VoteSelectionService.doVote(event.target.firstChild.nodeValue);
 	}
 })
 
-.controller('MyVoteCtrl', function($scope, myVote) {
+.controller('MyVoteCtrl', function($scope, myVote, GameTitleService) {
+	$scope.pageTitle = GameTitleService.getGameTitle();
 	$scope.myVote = myVote;
+	
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	//var txt = myVote;
