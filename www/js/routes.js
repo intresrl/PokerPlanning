@@ -13,12 +13,7 @@ angular.module('app.routes', [])
   .state('startPage', {
     url: '/start_page',
     templateUrl: 'templates/start_page.html',
-    controller: 'StartPageCtrl',
-    resolve: {
-      gameTitle: function(GameTitleService) {
-        return GameTitleService.getGameTitle();
-      }
-    }
+    controller: 'StartPageCtrl'
   })
 
 
@@ -26,7 +21,12 @@ angular.module('app.routes', [])
   .state('voteSelection', {
     url: '/vote_selection',
     templateUrl: 'templates/vote_selection.html',
-    controller: 'VoteSelectionCtrl'
+    controller: 'VoteSelectionCtrl',
+    resolve: {
+      gameTitle: function(GameTitleService) {
+        return GameTitleService.getGameTitle();
+      }
+    }
   })
 
 

@@ -7,9 +7,9 @@
         <form class="list">
             <label class="item item-input">
                 <span class="input-label">Game Title: </span>
-                <input id="gameTitleLabel" type="text" placeholder="">
+                <input id="gameTitleLabel" type="text" placeholder="" ng-model="gameTitle">
             </label>
         </form>
-        <a ui-sref="voteSelection" ng-click="spc.setGameTitle($event)" class="button button-stable button-block">Start</a>
+        <a ui-sref="voteSelection" ng-click="spc.setGameTitle(gameTitle)" class="button button-stable button-block">Start</a>
     </ion-content>
 </ion-view>

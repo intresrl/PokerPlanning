@@ -2,16 +2,16 @@ angular.module('app.controllers', [])
 
 .controller('StartPageCtrl', function($scope, GameTitleService) {
 	var spc = this;
-	spc.setGameTitle = function(event){
-		var gameLabel = document.getElementById("gameTitleLabel");
-		GameTitleService.setGameTitle(gameLabel.value);
+
+	spc.setGameTitle = function(gameTitle){
+		GameTitleService.setGameTitle(gameTitle);
 	}
+
 })
 
 .controller('VoteSelectionCtrl', function($scope, VoteSelectionService, GameTitleService) {
 	var vsc = this;
 
-	//$scope.pageTitle = "TEEEEEEEEEEST"; //THIS WAY IT WORKS
 	$scope.pageTitle = GameTitleService.getGameTitle();
 	
 	vsc.doVote = function(event){
@@ -25,7 +25,6 @@ angular.module('app.controllers', [])
 	
 	var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
-	//var txt = myVote;
 	var fontSize = 30;
 	var xCoord = c.width / 2;
 	var yCoord = c.height / 2;
