@@ -9,33 +9,9 @@ angular.module('app.controllers', [])
 
 })
 
-.controller('VoteSelectionCtrl', function($scope, $timeout, VoteSelectionService, GameTitleService) {
+.controller('VoteSelectionCtrl', function($scope, VoteSelectionService, GameTitleService) {
 	var vsc = this;
 	$scope.pageTitle = GameTitleService.getGameTitle();
-
-	$scope.colors ={};
-  	$scope.colors.current = {color: "green"};	
-
-	var timer = null;
-    $scope.counter = 40;
-    var updateCounter = function() 
-    {
-    	if($scope.counter ===  0) {
-            //$scope.$broadcast('timer-stopped', 0);
-            $timeout.cancel(timer);
-            return;
-        }
-
-        if($scope.counter < 29)
- 		{
- 			$scope.colors.current = {color: "red"};
- 		}
- 		
-        $scope.counter--;
-        console.log('COUNTER: '+$scope.counter);
-        timer = $timeout(updateCounter, 1000);
-    };
-    updateCounter();
 
 	vsc.doVote = function(event){
 		VoteSelectionService.doVote(event.target.firstChild.nodeValue);
@@ -57,4 +33,29 @@ angular.module('app.controllers', [])
 
 .controller('ResultsCtrl', function($scope) {
 
+})
+
+.controller('ColorsCtrl', function($scope, $timeout) {
+	var timer = null;
+    $scope.counter = 60;
+    $scope.colors ={};
+  	$scope.colors.current = {color: "green"};	
+    var updateCounter = function() 
+    {
+    	if($scope.counter ===  0) {
+            //$scope.$broadcast('timer-stopped', 0);
+            $timeout.cancel(timer);
+            return;
+        }
+
+        if($scope.counter < 29)
+ 		{
+ 			$scope.colors.current = {color: "red"};
+ 		}
+ 		
+        $scope.counter--;
+        console.log('COUNTER: '+$scope.counter);
+        timer = $timeout(updateCounter, 1000);
+    }
+    updateCounter();
 })
