@@ -42,18 +42,20 @@ angular.module('app.controllers', [])
   	$scope.colors.current = {color: "green"};	
     var updateCounter = function() 
     {
+    	$scope.counter--;
+
     	if($scope.counter ===  0) {
             //$scope.$broadcast('timer-stopped', 0);
             $timeout.cancel(timer);
             return;
         }
 
-        if($scope.counter < 29)
+        if($scope.counter < 15)
  		{
  			$scope.colors.current = {color: "red"};
  		}
  		
-        $scope.counter--;
+    
         console.log('COUNTER: '+$scope.counter);
         timer = $timeout(updateCounter, 1000);
     }
