@@ -1,11 +1,16 @@
 angular.module('app.controllers', [])
 
-.controller('StartPageCtrl', function($scope, GameTitleService) {
+.controller('StartPageCtrl', function($scope, GameTitleService, TimeoutService) {
 	var spc = this;
 
 	spc.setGameTitle = function(gameTitle){
+		console.log('call to SETGAMETITLE');
 		GameTitleService.setGameTitle(gameTitle);
 	}
+
+	spc.setGameTimer = function(tmpTimer){
+		TimeoutService.setGameTimer(tmpTimer);
+    }	
 
 })
 
@@ -29,34 +34,41 @@ angular.module('app.controllers', [])
 	var yCoord = c.height / 2;
 	ctx.font = fontSize + "px Arial";
 	ctx.fillText(myVote, xCoord, yCoord);
+
 })
 
 .controller('ResultsCtrl', function($scope) {
 
 })
 
-.controller('ColorsCtrl', function($scope, $timeout) {
+.controller('TimeoutCtrl', function($scope, $timeout, TimeoutService) {
 	var timer = null;
-    $scope.counter = 60;
+    //$scope.counter = 40;
+    $scope.counter = TimeoutService.getGameTimer();
     $scope.colors ={};
-  	$scope.colors.current = {color: "green"};	
+    if($scope.counter === 0){
+    	$scope.colors.current = {color: "red"};
+    }
+    else{
+    	$scope.colors.current = {color: "green"};	
+    }
+  	
     var updateCounter = function() 
     {
-    	$scope.counter--;
-
     	if($scope.counter ===  0) {
             //$scope.$broadcast('timer-stopped', 0);
             $timeout.cancel(timer);
             return;
         }
 
-        if($scope.counter < 15)
+		$scope.counter--;
+    	TimeoutService.setGameTimer($scope.counter);
+        
+        if($scope.counter < 30)
  		{
  			$scope.colors.current = {color: "red"};
  		}
- 		
-    
-        console.log('COUNTER: '+$scope.counter);
+
         timer = $timeout(updateCounter, 1000);
     }
     updateCounter();

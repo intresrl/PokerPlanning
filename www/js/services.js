@@ -1,6 +1,9 @@
 angular.module('app.services', [])
 
-.factory('BlankFactory', [function(){
+.factory('MyService', [function(){
+	return {
+		
+	}
 
 }])
 
@@ -24,6 +27,18 @@ angular.module('app.services', [])
 		},
 		doVote : function(newVote){
 			this.myVote = newVote;
+		}
+	}
+}])
+
+.service('TimeoutService', [function(){
+	return {
+		gameTimer: '0',
+		getGameTimer : function(){
+			return this.gameTimer;
+		},
+		setGameTimer : function(newTimer){
+			this.gameTimer = newTimer;
 		}
 	}
 }])

@@ -4,8 +4,9 @@
         <canvas id="myCanvas" style="border:1px solid #444444; background:blue; width:100%; height:70vh;">
         </canvas>
         <form class="list">
-            <label class="item item-input">
-                <span class="input-label">Timer:</span><textarea placeholder=""> </textarea>
+            <label class="item item-input" ng-controller="TimeoutCtrl">
+                <span class="input-label">Timer:</span>
+                <textarea placeholder="" ng-style="colors.current">{{counter}}</textarea>
             </label>
         </form>
         <a ui-sref="results" class="button button-stable button-icon  icon-left ion-android-arrow-back">this button is temporary Results</a>
