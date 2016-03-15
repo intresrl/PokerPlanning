@@ -1,14 +1,12 @@
 <ion-view cache-view="false">
     <ion-nav-title>{{pageTitle}}</ion-nav-title>
     <ion-content padding="true" class="has-header">
-        <canvas id="myCanvas" style="border:1px solid #444444; background:blue; width:100%; height:70vh;">
+        <canvas id="myCanvas" style="border:1px solid #444444; width:100%; height:70vh;" ng-style="background.current">
         </canvas>
-        <form class="list">
-            <label class="item item-input" ng-controller="TimeoutCtrl">
-                <span class="input-label">Timer:</span>
-                <textarea placeholder="" ng-style="colors.current">{{counter}}</textarea>
-            </label>
-        </form>
+        <div class="card">
+          <div class="item item-text-wrap padding-bottom">
+            <i class="icon ion-clock item item-text-wrap padding" ng-controller="TimeoutCtrl" ng-style="colors.current" style="text-align: center;">  Only <b>{{counter}}</b> Seconds Left</i>
+          </div>
         <a ui-sref="results" class="button button-stable button-icon  icon-left ion-android-arrow-back">this button is temporary Results</a>
         <form class="list"></form>
     </ion-content>

@@ -1,4 +1,4 @@
-<ion-view cache-view="false">
+<!-- <ion-view cache-view="false">
     <ion-nav-title>{{pageTitle}}</ion-nav-title>
     <ion-content padding="true" class="has-header" ng-controller="VoteSelectionCtrl as vsc">
         <div class="button-bar">
@@ -16,12 +16,36 @@
             <a ui-sref="myVote" ng-click="vsc.doVote($event)" class="button button-stable button-block button-large">?</a>
             <a ui-sref="myVote" ng-click="vsc.doVote($event)" class="button button-stable button-block button-large">BIG</a>
         </div>
-        <form class="list">
-            <label class="item item-input" ng-controller="TimeoutCtrl">
-                <span class="input-label">Timer:</span>
-                <!--ng-style="vsc.colors.current" -->
-                <textarea ng-style="colors.current"> {{counter}} </textarea>
-            </label>
-        </form>
+        <div class="card">
+          <div class="item item-text-wrap padding-bottom">
+            <i class="icon ion-clock item item-text-wrap padding" ng-controller="TimeoutCtrl" ng-style="colors.current" style="text-align: center;">  You Have <b>{{counter}}</b> Seconds to Vote</i>
+          </div>
+        </div>
+    </ion-content>
+</ion-view> -->
+
+<ion-view cache-view="false">
+    <ion-nav-title>{{pageTitle}}</ion-nav-title>
+    <ion-content padding="true" class="has-header" ng-controller="VoteSelectionCtrl as vsc">
+        <div class="row" ui-sref="myVote">
+            <div  class="col button button-calm button-block button-large" ng-click="vsc.doVote($event, 'yellow')" >1</div>
+            <div  class="col button button-positive button-block button-large">2</div>
+            <div  class="col button button-balanced button-block button-large">3</div>
+        </div>
+        <div class="row" ui-sref="myVote">
+            <div class="col button button-energized button-block button-large">5</div>
+            <div class="col button button-assertive button-block button-large">8</div>
+            <div class="col button button-royal button-block button-large">13</div>
+        </div>
+        <div class="row" ui-sref="myVote">
+            <div class="col button button-positive button-block button-large">21</div>
+            <div class="col button button-stable button-block button-large">?</div>
+            <div class="col button button-calm button-block button-large">BIG</div>
+        </div>
+        <div class="card">
+          <div class="item item-text-wrap padding-bottom">
+            <i class="icon ion-clock item item-text-wrap padding" ng-controller="TimeoutCtrl" ng-style="colors.current" style="text-align: center;">  You Have <b>{{counter}}</b> Seconds to Vote</i>
+          </div>
+        </div>
     </ion-content>
 </ion-view>

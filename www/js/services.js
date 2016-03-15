@@ -22,12 +22,19 @@ angular.module('app.services', [])
 .service('VoteSelectionService', [function(){
 	return {
 		myVote: '0',
+		myColor: 'green',
 		getMyVote : function(){
 			return this.myVote;
 		},
 		doVote : function(newVote){
 			this.myVote = newVote;
-		}
+		},
+		setBackgroundColor : function(color){
+			this.myColor = color;
+		},
+		getBackgroundColor : function(){
+			return this.myColor;
+		},
 	}
 }])
 

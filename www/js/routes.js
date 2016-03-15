@@ -38,6 +38,9 @@ angular.module('app.routes', [])
     resolve: {
       myVote: function(VoteSelectionService) {
         return VoteSelectionService.getMyVote();
+      },
+      myColor: function(VoteSelectionService) {
+        return VoteSelectionService.getBackgroundColor();
       }
     }
   })
