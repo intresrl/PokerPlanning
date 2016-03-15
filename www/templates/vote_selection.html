@@ -28,19 +28,19 @@
     <ion-nav-title>{{pageTitle}}</ion-nav-title>
     <ion-content padding="true" class="has-header" ng-controller="VoteSelectionCtrl as vsc">
         <div class="row" ui-sref="myVote">
-            <div  class="col button button-calm button-block button-large" ng-click="vsc.doVote($event, 'yellow')" >1</div>
-            <div  class="col button button-positive button-block button-large">2</div>
-            <div  class="col button button-balanced button-block button-large">3</div>
+            <div  class="col button button-calm button-block button-large" ng-click="vsc.doVote($event, '#43cee6')" >1</div>
+            <div  class="col button button-positive button-block button-large" ng-click="vsc.doVote($event, '#4a87ee')">2</div>
+            <div  class="col button button-balanced button-block button-large" ng-click="vsc.doVote($event, '#66cc33')">3</div>
         </div>
         <div class="row" ui-sref="myVote">
-            <div class="col button button-energized button-block button-large">5</div>
-            <div class="col button button-assertive button-block button-large">8</div>
-            <div class="col button button-royal button-block button-large">13</div>
+            <div class="col button button-energized button-block button-large" ng-click="vsc.doVote($event, '#f0b840')">5</div>
+            <div class="col button button-assertive button-block button-large" ng-click="vsc.doVote($event, '#ef4e3a')">8</div>
+            <div class="col button button-royal button-block button-large" ng-click="vsc.doVote($event, '#8a6de9')">13</div>
         </div>
         <div class="row" ui-sref="myVote">
-            <div class="col button button-positive button-block button-large">21</div>
-            <div class="col button button-stable button-block button-large">?</div>
-            <div class="col button button-calm button-block button-large">BIG</div>
+            <div class="col button button-positive button-block button-large" ng-click="vsc.doVote($event, '#4a87ee')">21</div>
+            <div class="col button button-stable button-block button-large" ng-click="vsc.doVote($event, '#f8f8f8')">?</div>
+            <div class="col button button-calm button-block button-large" ng-click="vsc.doVote($event, '#43cee6')">BIG</div>
         </div>
         <div class="card">
           <div class="item item-text-wrap padding-bottom">
