@@ -40,20 +40,28 @@ angular.module('app.controllers', [])
 	ctx.font = fontSize + "px Arial";
 	ctx.fillText(myVote, xCoord, yCoord);
 
-	this.setBackgroundColor = function(backgroundColor) {
-		$scope.background.current = {
-			background: backgroundColor
-		};
-
-	}
-
+	
 })
 
-.controller('ResultsCtrl', function($scope) {
+.controller('ResultsCtrl', function($scope, myVote, myColor, GameTitleService) {
+	$scope.pageTitle = GameTitleService.getGameTitle();
+	$scope.myVote = myVote;
+	$scope.background = {};
+	$scope.background.current = {
+		background: myColor
+	};
 
+	var c = document.getElementById("myCanvas2");
+	var ctx = c.getContext("2d");
+	var fontSize = 30;
+	var xCoord = c.width / 2;
+	var yCoord = c.height / 2;
+	ctx.font = fontSize + "px Arial";
+	
+	ctx.fillText(myVote, xCoord, yCoord);
 })
 
-.controller('TimeoutCtrl', function($scope, $timeout, TimeoutService) {
+.controller('TimeoutCtrl', function($scope, $timeout, $state, TimeoutService, VoteSelectionService) {
 	var timer = null;
 
 	$scope.counter = TimeoutService.getGameTimer();
@@ -63,8 +71,10 @@ angular.module('app.controllers', [])
 	};
 
 	var updateCounter = function() {
+		
 		if ($scope.counter === 0) {
 			$timeout.cancel(timer);
+			$state.go('results');
 			return;
 		}
 
@@ -79,5 +89,5 @@ angular.module('app.controllers', [])
 
 		timer = $timeout(updateCounter, 1000);
 	}
-	updateCounter();
+	updateCounter();	
 })

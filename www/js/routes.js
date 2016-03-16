@@ -50,7 +50,15 @@ angular.module('app.routes', [])
   .state('results', {
     url: '/results',
     templateUrl: 'templates/results.html',
-    controller: 'ResultsCtrl'
+    controller: 'ResultsCtrl',
+     resolve: {
+      myVote: function(VoteSelectionService) {
+        return VoteSelectionService.getMyVote();
+      },
+      myColor: function(VoteSelectionService) {
+        return VoteSelectionService.getBackgroundColor();
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback

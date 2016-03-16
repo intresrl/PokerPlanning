@@ -21,8 +21,8 @@ angular.module('app.services', [])
 
 .service('VoteSelectionService', [function(){
 	return {
-		myVote: '0',
-		myColor: 'green',
+		myVote: '?',
+		myColor: '#f8f8f8',
 		getMyVote : function(){
 			return this.myVote;
 		},
