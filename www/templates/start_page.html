@@ -1,5 +1,5 @@
 <!-- ng-style="{'overflow-scroll {overflow-x: hidden;overflow-y: hidden;}'}" -->
-<ion-view title="">
+<ion-view title="" hide-back-button="true">
     <!-- style="overflow-y: hidden;" -->
     <ion-content  padding="true" ng-controller="StartPageCtrl as spc" class="has-header">
         <div style="text-align:center;">
@@ -12,6 +12,6 @@
                 <input id="gameTitleLabel" type="text" placeholder="" ng-model="gameTitle">
             </label>
         </form>
-        <a ui-sref="voteSelection" ng-click="spc.setGameTitle(gameTitle);spc.setGameTimer(5)" class="button button-stable button-block">Start</a>
+        <a ui-sref="voteSelection" ng-click="spc.setGameTitle(gameTitle);spc.setGameTimer(10)" class="button button-stable button-block">Start</a>
     </ion-content>
 </ion-view>
