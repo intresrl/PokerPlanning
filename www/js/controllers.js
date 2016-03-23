@@ -32,15 +32,25 @@ angular.module('app.controllers', [])
 		background: myColor
 	};
 
-	var c = document.getElementById("myCanvas");
+	/*var c = document.getElementById("myCanvas");
 	var ctx = c.getContext("2d");
 	var fontSize = 30;
 	var xCoord = c.width / 2;
 	var yCoord = c.height / 2;
 	ctx.font = fontSize + "px Arial";
-	ctx.fillText(myVote, xCoord, yCoord);
+	ctx.fillText(myVote, xCoord, yCoord);*/
 
-	
+    //
+	var canvas = document.getElementById('myCanvas');
+    var context = canvas.getContext('2d');
+    var x = canvas.width / 2;
+    var y = canvas.height / 2;
+	context.font = '50pt Calibri';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle'; 
+    context.fillStyle = 'black';
+    context.fillText(myVote, x, y);
+    //
 })
 
 .controller('ResultsCtrl', function($scope, myVote, myColor, GameTitleService) {
@@ -51,14 +61,17 @@ angular.module('app.controllers', [])
 		background: myColor
 	};
 
-	var c = document.getElementById("myCanvas2");
-	var ctx = c.getContext("2d");
-	var fontSize = 30;
-	var xCoord = c.width / 2;
-	var yCoord = c.height / 2;
-	ctx.font = fontSize + "px Arial";
-	
-	ctx.fillText(myVote, xCoord, yCoord);
+	//
+	var canvas = document.getElementById('myCanvas2');
+    var context = canvas.getContext('2d');
+    var x = canvas.width / 2;
+    var y = canvas.height / 2;
+	context.font = '50pt Calibri';
+    context.textAlign = 'center';
+    context.textBaseline = 'middle'; 
+    context.fillStyle = 'black';
+    context.fillText(myVote, x, y);
+    //
 })
 
 .controller('TimeoutCtrl', function($scope, $timeout, $state, TimeoutService, VoteSelectionService) {
