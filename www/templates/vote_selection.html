@@ -1,6 +1,6 @@
 <ion-view cache-view="false" hide-back-button="true">
     <ion-nav-title>{{pageTitle}}</ion-nav-title>
-    <ion-content padding="true" class="has-header" ng-controller="VoteSelectionCtrl as vsc">
+    <ion-content padding="true" class="has-header" ng-controller="VoteSelectionCtrl as vsc" overflow-scroll="false">
         <div class="row" ui-sref="myVote">
             <div  class="col button button-calm button-block button-large" ng-click="vsc.doVote($event, '#43cee6')" >1</div>
             <div  class="col button button-positive button-block button-large" ng-click="vsc.doVote($event, '#4a87ee')">2</div>
